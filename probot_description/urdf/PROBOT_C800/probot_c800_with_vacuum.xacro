@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="probot_c800"  xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926536"/>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="5.147E-06 -0.00046785 0.015896"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="0.059509"
+        ixy="-1.4288E-07"
+        ixz="2.849E-08"
+        iyy="0.00060823"
+        iyz="-2.5808E-06"
+        izz="0.0011221" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_1">
+    <inertial>
+      <origin
+        xyz="0.00965262287162855 0.000106882257560006 -0.0934671109139962"
+        rpy="0 0 0" />
+      <mass
+        value="6" />
+      <inertia
+        ixx="0.408865798627214"
+        ixy="-5.96603151037548E-06"
+        ixz="0.000373851909212829"
+        iyy="0.00462847786874606"
+        iyz="4.12539063355566E-06"
+        izz="0.00336611341313754" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.02685"
+      rpy="${M_PI} 0 ${-M_PI/2}" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="link_2">
+    <inertial>
+      <origin
+        xyz="0.0934750581217414 0.00103234502270023 -0.173879790200934"
+        rpy="0 0 0" />
+      <mass
+        value="3" />
+      <inertia
+        ixx="0.121779083694365"
+        ixy="-2.80230067509799E-05"
+        ixz="9.97468437098008E-10"
+        iyy="0.0147149627140393"
+        iyz="-8.00783289230579E-08"
+        izz="0.00958972857755924" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="0.06985 0.0 -0.09285"
+      rpy="0 0 0" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="link_3">
+    <inertial>
+      <origin
+        xyz="-0.0687118174770173 -0.000754378183272216 -0.185631913469604"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.663956391078891"
+        ixy="-2.71624301134228E-06"
+        ixz="-0.000251322412392862"
+        iyy="0.00692970951632879"
+        iyz="-2.96259292810681E-06"
+        izz="0.00245054455125903" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.3484"
+      rpy="0 0 0" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="link_4">
+    <inertial>
+      <origin
+        xyz="1.42558891115018E-07 0.011406732342618 -0.041125104941559"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.790631110631163"
+        ixy="1.14094804039212E-10"
+        ixz="8.72089830829354E-10"
+        iyy="0.000625170480739091"
+        iyz="3.28279382060779E-12"
+        izz="0.000711240090250443" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="revolute">
+    <origin
+      xyz="-0.01605 0.0 -0.3495"
+      rpy="${M_PI/2} 0 ${-M_PI/2}" />
+    <parent
+      link="link_3" />
+    <child
+      link="link_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="link_5">
+    <inertial>
+      <origin
+        xyz="-0.0114844563632815 -0.000126834206554931 -0.0414064058202409"
+        rpy="0 0 0" />
+      <mass
+        value="0.3" />
+      <inertia
+        ixx="0.621780696658123"
+        ixy="-1.82724165631366E-06"
+        ixz="6.97185313514566E-12"
+        iyy="0.000787203265227848"
+        iyz="-1.46862677962704E-10"
+        izz="0.000704470727358158" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="revolute">
+    <origin
+      xyz="0 -0.0541 -0.0464"
+      rpy="${-M_PI/2} ${M_PI/2} 0" />
+    <parent
+      link="link_4" />
+    <child
+      link="link_5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="3" />
+  </joint>
+  <link
+    name="link_6">
+    <inertial>
+      <origin
+        xyz="0.014970141556978 0.000165329680690855 5.42196176844811E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.138913647701422" />
+      <inertia
+        ixx="0.114113868764739"
+        ixy="5.037705828088E-07"
+        ixz="1.27793184454972E-11"
+        iyy="6.850486862405E-05"
+        iyz="-1.06418612094514E-09"
+        izz="6.85002551423014E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://probot_description/meshes/PROBOT_C800/link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="revolute">
+    <origin
+      xyz="0.0501 0 -0.0464"
+      rpy="0 0 0" />
+    <parent
+      link="link_5" />
+    <child
+      link="link_6" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3"
+      upper="3"
+      effort="100"
+      velocity="3" />
+  </joint>
+
+  <link name="tool0"/>
+  <joint name="joint_tool0" type="fixed">
+    <origin xyz="0.03328 0 0" rpy="${-M_PI} 0 ${-M_PI/2}" />
+    <parent link="link_6" />
+    <child link="tool0" />
+  </joint>
+
+    <link name="vacuum_gripper">
+      <gravity>0</gravity>
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.005" length="0.02"/>
+        </geometry>
+        <material name="transparent">
+          <color rgba="0 0 0 0"/>
+        </material>
+      </visual>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+        <mass value="0.0001"/>
+        <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+      </inertial>
+    </link>
+
+    <joint name="gripper_joint" type="revolute">
+      <axis xyz="1 0 0" />
+      <parent link="link_6" />
+      <child link="vacuum_gripper" />
+      <origin rpy="0 1.5708 0" xyz="0.035 0.0125 0" />
+      <limit effort="50" velocity="50" lower="0" upper="0" />
+      <dynamics damping="0.0" friction="10"/>
+    </joint>
+
+  <gazebo>
+      <plugin name="gazebo_ros_vacuum_gripper" filename="libgazebo_ros_vacuum_gripper.so">
+        <robotNamespace>/c800/vacuum_gripper</robotNamespace>
+        <bodyName>vacuum_gripper</bodyName>
+        <topicName>grasping</topicName>
+	<maxForce>50</maxForce>
+        <maxDistance>0.05</maxDistance>
+        <minDistance>0.01</minDistance>
+      </plugin>
+  </gazebo>
+<gazebo reference="vacuum_gripper">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+<link name="vacuum_gripper1">
+      <gravity>0</gravity>
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.005" length="0.02"/>
+        </geometry>
+        <material name="transparent">
+          <color rgba="0 0 0 0"/>
+        </material>
+      </visual>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+        <mass value="0.0001"/>
+        <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+      </inertial>
+    </link>
+
+    <joint name="gripper_joint1" type="revolute">
+      <axis xyz="1 0 0" />
+      <parent link="link_6" />
+      <child link="vacuum_gripper1" />
+      <origin rpy="0 1.5708 0" xyz="0.035 -0.0125 0" />
+      <limit effort="50" velocity="50" lower="0" upper="0" />
+      <dynamics damping="0.0" friction="10"/>
+    </joint>
+
+  <gazebo>
+      <plugin name="gazebo_ros_vacuum_gripper1" filename="libgazebo_ros_vacuum_gripper.so">
+        <robotNamespace>/c800/vacuum_gripper1</robotNamespace>
+        <bodyName>vacuum_gripper1</bodyName>
+        <topicName>grasping1</topicName>
+	<maxForce>50</maxForce>
+        <maxDistance>0.05</maxDistance>
+        <minDistance>0.01</minDistance>
+      </plugin>
+  </gazebo>
+<gazebo reference="vacuum_gripper1">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+    <link name="vacuum_gripper2">
+      <gravity>0</gravity>
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.005" length="0.02"/>
+        </geometry>
+        <material name="transparent">
+          <color rgba="0 0 0 0"/>
+        </material>
+      </visual>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+        <mass value="0.0001"/>
+        <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+      </inertial>
+    </link>
+
+    <joint name="gripper_joint2" type="revolute">
+      <axis xyz="1 0 0" />
+      <parent link="link_6" />
+      <child link="vacuum_gripper2" />
+      <origin rpy="0 1.5708 0" xyz="0.035 0 0.0125" />
+      <limit effort="50" velocity="50" lower="0" upper="0" />
+      <dynamics damping="0.0" friction="10"/>
+    </joint>
+
+  <gazebo>
+      <plugin name="gazebo_ros_vacuum_gripper2" filename="libgazebo_ros_vacuum_gripper.so">
+        <robotNamespace>/c800/vacuum_gripper2</robotNamespace>
+        <bodyName>vacuum_gripper2</bodyName>
+        <topicName>grasping2</topicName>
+	<maxForce>50</maxForce>
+        <maxDistance>0.05</maxDistance>
+        <minDistance>0.01</minDistance>
+      </plugin>
+  </gazebo>
+<gazebo reference="vacuum_gripper2">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+    <link name="vacuum_gripper3">
+      <gravity>0</gravity>
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.005" length="0.02"/>
+        </geometry>
+        <material name="transparent">
+          <color rgba="0 0 0 0"/>
+        </material>
+      </visual>
+      <inertial>
+        <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+        <mass value="0.0001"/>
+        <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+      </inertial>
+    </link>
+
+    <joint name="gripper_joint3" type="revolute">
+      <axis xyz="1 0 0" />
+      <parent link="link_6" />
+      <child link="vacuum_gripper3" />
+      <origin rpy="0 1.5708 0" xyz="0.035 0 -0.0125" />
+      <limit effort="50" velocity="50" lower="0" upper="0" />
+      <dynamics damping="0.0" friction="10"/>
+    </joint>
+
+  <gazebo>
+      <plugin name="gazebo_ros_vacuum_gripper3" filename="libgazebo_ros_vacuum_gripper.so">
+        <robotNamespace>/c800/vacuum_gripper3</robotNamespace>
+        <bodyName>vacuum_gripper3</bodyName>
+        <topicName>grasping2</topicName>
+	<maxForce>50</maxForce>
+        <maxDistance>0.05</maxDistance>
+        <minDistance>0.01</minDistance>
+      </plugin>
+  </gazebo>
+<gazebo reference="vacuum_gripper3">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+  <link name="vacuum_gripper4">
+    <gravity>0</gravity>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.02"/>
+      </geometry>
+      <material name="transparent">
+        <color rgba="0 0 0 0"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="0.0001"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+  </link>
+
+  <joint name="gripper_joint4" type="revolute">
+    <axis xyz="1 0 0" />
+    <parent link="link_6" />
+    <child link="vacuum_gripper4" />
+    <origin rpy="0 1.5708 0" xyz="0.035 0 0" />
+    <limit effort="50" velocity="50" lower="0" upper="0" />
+    <dynamics damping="0.0" friction="10"/>
+  </joint>
+
+  <gazebo>
+    <plugin name="gazebo_ros_vacuum_gripper4" filename="libgazebo_ros_vacuum_gripper.so">
+      <robotNamespace>/c800/vacuum_gripper4</robotNamespace>
+      <bodyName>vacuum_gripper4</bodyName>
+      <topicName>grasping4</topicName>
+  <maxForce>50</maxForce>
+      <maxDistance>0.05</maxDistance>
+      <minDistance>0.01</minDistance>
+    </plugin>
+  </gazebo>
+<gazebo reference="vacuum_gripper4">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+  <link name="vacuum_gripper5">
+    <gravity>0</gravity>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.02"/>
+      </geometry>
+      <material name="transparent">
+        <color rgba="0 0 0 0"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="0.0001"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+  </link>
+
+  <joint name="gripper_joint5" type="revolute">
+    <axis xyz="1 0 0" />
+    <parent link="link_6" />
+    <child link="vacuum_gripper5" />
+    <origin rpy="0 1.5708 0" xyz="0.035 0.0125 0.0125" />
+    <limit effort="50" velocity="50" lower="0" upper="0" />
+    <dynamics damping="0.0" friction="10"/>
+  </joint>
+
+<gazebo>
+    <plugin name="gazebo_ros_vacuum_gripper5" filename="libgazebo_ros_vacuum_gripper.so">
+      <robotNamespace>/c800/vacuum_gripper5</robotNamespace>
+      <bodyName>vacuum_gripper5</bodyName>
+      <topicName>grasping5</topicName>
+<maxForce>50</maxForce>
+      <maxDistance>0.05</maxDistance>
+      <minDistance>0.01</minDistance>
+    </plugin>
+</gazebo>
+<gazebo reference="vacuum_gripper5">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+
+  <link name="vacuum_gripper6">
+    <gravity>0</gravity>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.02"/>
+      </geometry>
+      <material name="transparent">
+        <color rgba="0 0 0 0"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="0.0001"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+  </link>
+
+  <joint name="gripper_joint6" type="revolute">
+    <axis xyz="1 0 0" />
+    <parent link="link_6" />
+    <child link="vacuum_gripper6" />
+    <origin rpy="0 1.5708 0" xyz="0.035 -0.0125 0.0125" />
+    <limit effort="50" velocity="50" lower="0" upper="0" />
+    <dynamics damping="0.0" friction="10"/>
+  </joint>
+
+<gazebo>
+    <plugin name="gazebo_ros_vacuum_gripper6" filename="libgazebo_ros_vacuum_gripper.so">
+      <robotNamespace>/c800/vacuum_gripper6</robotNamespace>
+      <bodyName>vacuum_gripper6</bodyName>
+      <topicName>grasping6</topicName>
+<maxForce>50</maxForce>
+      <maxDistance>0.05</maxDistance>
+      <minDistance>0.01</minDistance>
+    </plugin>
+</gazebo>
+<gazebo reference="vacuum_gripper6">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+  <link name="vacuum_gripper7">
+    <gravity>0</gravity>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.02"/>
+      </geometry>
+      <material name="transparent">
+        <color rgba="0 0 0 0"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="0.0001"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+  </link>
+
+  <joint name="gripper_joint7" type="revolute">
+    <axis xyz="1 0 0" />
+    <parent link="link_6" />
+    <child link="vacuum_gripper7" />
+    <origin rpy="0 1.5708 0" xyz="0.035 0.0125 -0.0125" />
+    <limit effort="50" velocity="50" lower="0" upper="0" />
+    <dynamics damping="0.0" friction="10"/>
+  </joint>
+
+<gazebo>
+    <plugin name="gazebo_ros_vacuum_gripper7" filename="libgazebo_ros_vacuum_gripper.so">
+      <robotNamespace>/c800/vacuum_gripper7</robotNamespace>
+      <bodyName>vacuum_gripper7</bodyName>
+      <topicName>grasping7</topicName>
+<maxForce>50</maxForce>
+      <maxDistance>0.05</maxDistance>
+      <minDistance>0.01</minDistance>
+    </plugin>
+</gazebo>
+<gazebo reference="vacuum_gripper7">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+
+  <link name="vacuum_gripper8">
+    <gravity>0</gravity>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.02"/>
+      </geometry>
+      <material name="transparent">
+        <color rgba="0 0 0 0"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="0.0001"/>
+      <inertia ixx="1e-08" ixy="0" ixz="0" iyy="1e-08" iyz="0" izz="1e-08"/>
+    </inertial>
+  </link>
+
+  <joint name="gripper_joint8" type="revolute">
+    <axis xyz="1 0 0" />
+    <parent link="link_6" />
+    <child link="vacuum_gripper8" />
+    <origin rpy="0 1.5708 0" xyz="0.035 -0.0125 -0.0125" />
+    <limit effort="50" velocity="50" lower="0" upper="0" />
+    <dynamics damping="0.0" friction="10"/>
+  </joint>
+
+<gazebo>
+    <plugin name="gazebo_ros_vacuum_gripper8" filename="libgazebo_ros_vacuum_gripper.so">
+      <robotNamespace>/c800/vacuum_gripper8</robotNamespace>
+      <bodyName>vacuum_gripper8</bodyName>
+      <topicName>grasping8</topicName>
+<maxForce>50</maxForce>
+      <maxDistance>0.05</maxDistance>
+      <minDistance>0.01</minDistance>
+    </plugin>
+</gazebo>
+<gazebo reference="vacuum_gripper8">
+            <mu1>50</mu1>
+            <mu2>50</mu2>
+ 　　　　　 <minDepth>0.003</minDepth>
+            <maxVel>0</maxVel>
+            <kp>1000000.0</kp>
+            <kd>1.0</kd>
+            <material>Gazebo/Grey</material>
+</gazebo>
+  <!-- Transmissions for ROS Control -->
+  <xacro:macro name="transmission_block" params="joint_name">
+    <transmission name="tran1">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${joint_name}">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="motor1">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+  </xacro:macro>
+  
+  <xacro:transmission_block joint_name="joint_1"/>
+  <xacro:transmission_block joint_name="joint_2"/>
+  <xacro:transmission_block joint_name="joint_3"/>
+  <xacro:transmission_block joint_name="joint_4"/>
+  <xacro:transmission_block joint_name="joint_5"/>
+  <xacro:transmission_block joint_name="joint_6"/>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+</robot>

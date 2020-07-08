@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="probot_c800">
+
+  <xacro:include filename="$(find probot_description)/urdf/PROBOT_C800/macro_probot_c800.xacro" />
+  <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/common.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/sensors/kinect2.urdf.xacro" />
+
+  <xacro:arm_probot_c800/>
+
+  <link name="world" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.3" rpy="0.0 0.0 ${pi}" />
+  </joint>
+
+  <xacro:robotiq_85_gripper prefix="" parent="link_6" >
+    <origin xyz="0.01 0 0" rpy="0 0 0"/>
+  </xacro:robotiq_85_gripper>
+
+  <xacro:kinect2_v0 name="" parent="world" >
+    <origin xyz="0.4 0.0 1.2" rpy="0.0 ${pi/2} 0.0" />
+  </xacro:kinect2_v0>
+</robot>
