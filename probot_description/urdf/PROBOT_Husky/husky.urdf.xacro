@@ -31,7 +31,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <xacro:include filename="$(find probot_description)/urdf/PROBOT_Husky/accessories/sick_lms1xx_mount.urdf.xacro"/>
   <xacro:include filename="$(find probot_description)/urdf/PROBOT_Husky/accessories/sensor_arch.urdf.xacro"/>
-
+  <xacro:include filename="$(find probot_description)/urdf/PROBOT_C800/macro_probot_c8001.xacro" />
   <property name="M_PI" value="3.14159"/>
 
   <!-- Base Size -->
@@ -122,6 +122,13 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     </xacro:husky_wheel>
 
     <xacro:husky_decorate />
+
+    <xacro:arm_probot_c8001/>
+      <joint name="c800_arm_base" type="fixed">
+        <parent link="top_plate_link" />
+        <child link="c800_base_link" />
+        <origin xyz="-0.05 0 0.02" rpy="0.0 0.0 -1.57" />
+      </joint>
 
       <sick_lms1xx_mount prefix="base" topic="scan"/>
 
