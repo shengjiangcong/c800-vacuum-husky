@@ -12,14 +12,12 @@
   </include>
 
   <!-- send robot urdf to param server -->
-
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(arg urdf_path)'" /> 
+  <param name="robot_description" textfile="$(arg urdf_path)" />
 
   <!-- push robot_description to factory and spawn robot in gazebo at the origin, change x,y,z arguments to spawn in a different position -->
   <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot -x 0 -y 0 -z 0"
     respawn="false" output="screen" />
-  <!--<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />-->
-  <include file="$(find probot_c800_moveit_config)/launch/ros_controllers.launch"/>
-  <include file="$(find husky_control)/launch/control.launch"/>
 
+  <include file="$(find husky_moveit_config)/launch/ros_controllers.launch"/>
+  <include file="$(find husky_control)/launch/control.launch"/>
 </launch>
