@@ -18,16 +18,17 @@
 import rospy, sys
 import moveit_commander
 from geometry_msgs.msg import PoseStamped, Pose
-
+from geometry_msgs.msg import Twist
 
 class MoveItIkDemo:
     def __init__(self):
         # 初始化move_group的API
         moveit_commander.roscpp_initialize(sys.argv)
-        
+        pub = rospy.Publisher('/cmd_vel', Twist,queue_size=10)
         # 初始化ROS节点
         rospy.init_node('moveit_ik_demo')
-                
+        rate = rospy.Rate(10) 
+        msg = Twist()        
         # 初始化需要使用move group控制的机械臂中的arm group
         arm = moveit_commander.MoveGroupCommander('manipulator')
 
@@ -57,6 +58,18 @@ class MoveItIkDemo:
         arm.set_named_target('home')
         arm.go()
         rospy.sleep(1)
+
+        for i in range(1,50):
+            msg.linear.x = 0.3
+            msg.linear.y = 0
+            msg.linear.z = 0
+            msg.angular.x = 0
+            msg.angular.y = 0
+            msg.angular.z = 0
+            pub.publish(msg)
+            print i
+            rate.sleep()
+
                
         # 设置机械臂工作空间中的目标位姿，位置使用x、y、z坐标描述，
         # 姿态使用四元数描述，基于base_link坐标系
