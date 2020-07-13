@@ -112,7 +112,7 @@ class MoveItIkDemo:
 
 
         # 设置夹爪的目标位置，并控制夹爪运动
-        gripper.set_joint_value_target([0.45])
+        gripper.set_joint_value_target([0.5])
         gripper.go()
         rospy.sleep(1)
 
