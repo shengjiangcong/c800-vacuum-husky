@@ -57,6 +57,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
         <geometry>
           <mesh filename="package://probot_description/meshes/PROBOT_Husky/base_link.dae" />
         </geometry>
+        <material name="orange" />
       </visual>
       <collision>
         <origin xyz="0 0 ${base_z_size/4}" rpy="0 0 0" />

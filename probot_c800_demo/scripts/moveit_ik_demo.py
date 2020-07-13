@@ -59,16 +59,16 @@ class MoveItIkDemo:
         arm.go()
         rospy.sleep(1)
 
-        for i in range(1,50):
-            msg.linear.x = 0.3
-            msg.linear.y = 0
-            msg.linear.z = 0
-            msg.angular.x = 0
-            msg.angular.y = 0
-            msg.angular.z = 0
-            pub.publish(msg)
-            print i
-            rate.sleep()
+        #for i in range(1,2):
+           # msg.linear.x = 0.3
+           # msg.linear.y = 0
+           # msg.linear.z = 0
+            #msg.angular.x = 0
+            #msg.angular.y = 0
+            #msg.angular.z = 0
+            #pub.publish(msg)
+            #print i
+            #rate.sleep()
 
                
         # 设置机械臂工作空间中的目标位姿，位置使用x、y、z坐标描述，
@@ -78,7 +78,7 @@ class MoveItIkDemo:
         target_pose.header.stamp = rospy.Time.now()     
         target_pose.pose.position.x = 0
         target_pose.pose.position.y = 0.6
-        target_pose.pose.position.z = 0.3
+        target_pose.pose.position.z = 0.4
         target_pose.pose.orientation.x = 0.707
         target_pose.pose.orientation.y = 0
         target_pose.pose.orientation.z = 0
@@ -97,8 +97,22 @@ class MoveItIkDemo:
         arm.execute(traj)
         rospy.sleep(1)
 
+        target_pose.pose.position.z = 0.25
+        arm.set_start_state_to_current_state()
+        
+        # 设置机械臂终端运动的目标位姿
+        arm.set_pose_target(target_pose, end_effector_link)
+
+        # 规划运动路径
+        traj = arm.plan()
+        
+        # 按照规划的运动路径控制机械臂运动
+        arm.execute(traj)
+        rospy.sleep(1)
+
+
         # 设置夹爪的目标位置，并控制夹爪运动
-        gripper.set_joint_value_target([0.5])
+        gripper.set_joint_value_target([0.45])
         gripper.go()
         rospy.sleep(1)
 
@@ -113,8 +127,8 @@ class MoveItIkDemo:
         # rospy.sleep(1)
            
         # 控制机械臂回到初始化位置
-        arm.set_named_target('home')
-        arm.go()
+        #arm.set_named_target('home')
+        #arm.go()
 
         # 关闭并退出moveit
         moveit_commander.roscpp_shutdown()

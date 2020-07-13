@@ -24,7 +24,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.636951" />
+                <mass value="0.0006951" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000380" ixy = "0.000000" ixz = "0.000000"
                          iyx = "0.000000" iyy = "0.001110" iyz = "0.000000"
@@ -69,7 +69,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.018491" />
+                <mass value="0.0008491" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000009" ixy = "-0.000001" ixz = "0.000000"
                          iyx = "-0.000001" iyy = "0.000001" iyz = "0.000000"
@@ -78,6 +78,7 @@
         </link>
         
         <gazebo reference="${prefix}gripper_finger1_knuckle_link">
+            <material>Gazebo/Blue</material>
             <implicitSpringDamper>1</implicitSpringDamper>
             <mu1>100000</mu1>
             <mu2>100000</mu2>
@@ -97,7 +98,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.018491" />
+                <mass value="0.000218491" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000009" ixy = "-0.000001" ixz = "0.000000"
                          iyx = "-0.000001" iyy = "0.000001" iyz = "0.000000"
@@ -137,7 +138,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.027309" />
+                <mass value="0.000227309" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000003" ixy = "-0.000002" ixz = "0.000000"
                          iyx = "-0.000002" iyy = "0.000021" iyz = "0.000000"
@@ -146,6 +147,7 @@
         </link>
 
         <gazebo reference="${prefix}gripper_finger1_finger_link">
+            <material>Gazebo/Blue</material>
             <implicitSpringDamper>1</implicitSpringDamper>
             <mu1>100000</mu1>
             <mu2>100000</mu2>
@@ -165,7 +167,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.027309" />
+                <mass value="0.000227309" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000003" ixy = "-0.000002" ixz = "0.000000"
                          iyx = "-0.000002" iyy = "0.000021" iyz = "0.000000"
@@ -174,6 +176,7 @@
         </link>
 
         <gazebo reference="${prefix}gripper_finger2_finger_link">
+            <material>Gazebo/Blue</material>
             <implicitSpringDamper>1</implicitSpringDamper>
             <mu1>100000</mu1>
             <mu2>100000</mu2>
@@ -211,7 +214,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.029951" />
+                <mass value="0.000229951" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000039" ixy = "0.000000" ixz = "0.000000"
                          iyx = "0.000000" iyy = "0.000005" iyz = "0.000000"
@@ -239,7 +242,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.029951" />
+                <mass value="0.000229951" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000039" ixy = "0.000000" ixz = "0.000000"
                          iyx = "0.000000" iyy = "0.000005" iyz = "0.000000"
@@ -286,7 +289,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.019555" />
+                <mass value="0.000219555" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000002" ixy = "0.000000" ixz = "0.000000"
                          iyx = "0.000000" iyy = "0.000005" iyz = "0.000000"
@@ -314,7 +317,7 @@
                 </geometry>
             </collision>
             <inertial>
-                <mass value="0.019555" />
+                <mass value="0.00019555" />
                 <origin xyz="0.0 0.0 0.0" />
                 <inertia ixx = "0.000002" ixy = "0.000000" ixz = "0.000000"
                          iyx = "0.000000" iyy = "0.000005" iyz = "0.000000"
