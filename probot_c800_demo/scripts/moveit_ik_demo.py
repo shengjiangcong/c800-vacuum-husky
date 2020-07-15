@@ -116,6 +116,19 @@ class MoveItIkDemo:
         gripper.go()
         rospy.sleep(1)
 
+
+        target_pose.pose.position.z = 0.3
+        arm.set_start_state_to_current_state()
+        
+        # 设置机械臂终端运动的目标位姿
+        arm.set_pose_target(target_pose, end_effector_link)
+
+        # 规划运动路径
+        traj = arm.plan()
+        
+        # 按照规划的运动路径控制机械臂运动
+        arm.execute(traj)
+        rospy.sleep(1)
         # 控制机械臂终端向右移动5cm
         # arm.shift_pose_target(1, 0.1, end_effector_link)
         # arm.go()
@@ -129,7 +142,21 @@ class MoveItIkDemo:
         # 控制机械臂回到初始化位置
         #arm.set_named_target('home')
         #arm.go()
+        for i in range(1,95):
+            msg.linear.x = 0.3
+            msg.linear.y = 0
+            msg.linear.z = 0
+            msg.angular.x = 0
+            msg.angular.y = 0
+            msg.angular.z = 0
+            pub.publish(msg)
+            print i
+            rate.sleep()
 
+        rospy.sleep(1)
+        gripper.set_joint_value_target([0])
+        gripper.go()
+        rospy.sleep(1)
         # 关闭并退出moveit
         moveit_commander.roscpp_shutdown()
         moveit_commander.os._exit(0)
