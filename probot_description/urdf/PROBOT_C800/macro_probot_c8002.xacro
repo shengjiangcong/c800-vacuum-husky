@@ -6,9 +6,9 @@
   <xacro:include filename="$(find pr2_description)/urdf/common.xacro" />
 
   <xacro:arm_probot_c8001/>
-
+555
   <xacro:robotiq_85_gripper prefix="" parent="link_6" >
-    <origin xyz="0.05 0 0" rpy="0 0 0"/>
+    <origin xyz="0.01 0 0" rpy="0 0 0"/>
   </xacro:robotiq_85_gripper>
  </xacro:macro>
 </robot>

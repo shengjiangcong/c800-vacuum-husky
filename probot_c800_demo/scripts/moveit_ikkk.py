@@ -26,7 +26,7 @@ class MoveItIkDemo:
         moveit_commander.roscpp_initialize(sys.argv)
         pub = rospy.Publisher('/cmd_vel', Twist,queue_size=10)
         # 初始化ROS节点
-        rospy.init_node('moveit_ik_demo')
+        rospy.init_node('moveit_ikkk')
         rate = rospy.Rate(10) 
         msg = Twist()        
         # 初始化需要使用move group控制的机械臂中的arm group
@@ -46,18 +46,14 @@ class MoveItIkDemo:
         arm.allow_replanning(True)
         
         # 设置位置(单位：米)和姿态（单位：弧度）的允许误差
-        arm.set_goal_position_tolerance(0.001)
-        arm.set_goal_orientation_tolerance(0.001)
+        arm.set_goal_position_tolerance(0.01)
+        arm.set_goal_orientation_tolerance(0.01)
         gripper.set_goal_joint_tolerance(0.001)
        
         # 设置允许的最大速度和加速度
-        arm.set_max_acceleration_scaling_factor(0.3)
-        arm.set_max_velocity_scaling_factor(0.3)
+        arm.set_max_acceleration_scaling_factor(0.5)
+        arm.set_max_velocity_scaling_factor(0.5)
 
-        # 控制机械臂先回到初始化位置
-        arm.set_named_target('home')
-        arm.go()
-        rospy.sleep(1)
 
         #for i in range(1,2):
            # msg.linear.x = 0.3
@@ -73,46 +69,11 @@ class MoveItIkDemo:
                
         # 设置机械臂工作空间中的目标位姿，位置使用x、y、z坐标描述，
         # 姿态使用四元数描述，基于base_link坐标系
-        target_pose = PoseStamped()
-        target_pose.header.frame_id = reference_frame
-        target_pose.header.stamp = rospy.Time.now()     
-        target_pose.pose.position.x = 0.0124
-        target_pose.pose.position.y = 0.6
-        target_pose.pose.position.z = 0.35
-        target_pose.pose.orientation.x = 0.707
-        target_pose.pose.orientation.y = 0
-        target_pose.pose.orientation.z = 0
-        target_pose.pose.orientation.w = 0.707
-        
-        # 设置机器臂当前的状态作为运动初始状态
-        arm.set_start_state_to_current_state()
-        
-        # 设置机械臂终端运动的目标位姿
-        arm.set_pose_target(target_pose, end_effector_link)
-
-        # 规划运动路径
-        traj = arm.plan()
-        
-        # 按照规划的运动路径控制机械臂运动
-        arm.execute(traj)
-        rospy.sleep(1)
-
-        target_pose.pose.position.z = 0.2
-        arm.set_start_state_to_current_state()
-        
-        # 设置机械臂终端运动的目标位姿
-        arm.set_pose_target(target_pose, end_effector_link)
-
-        # 规划运动路径
-        traj = arm.plan()
-        
-        # 按照规划的运动路径控制机械臂运动
-        arm.execute(traj)
-        rospy.sleep(1)
+ 
 
 
         # 设置夹爪的目标位置，并控制夹爪运动
-        gripper.set_joint_value_target([0.6])
+        gripper.set_joint_value_target([0.45])
         gripper.go()
         rospy.sleep(1)
 
