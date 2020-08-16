@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   moveit_core
   moveit_ros_perception
   moveit_ros_planning_interface
-  probot_msgs
+  #probot_msgs
   trajectory_msgs
   roscpp
   rospy
