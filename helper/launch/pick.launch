@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-  
-  <!-- the cylinder poses publisher node -->
-  <node name="talker" pkg="ur5_notebook" type="talker.py" output="screen" />
-  <node name="ur5_gripper" pkg="ur5_notebook" type="ur5_gripper.py" output="screen"/> 
-
-
-</launch>
