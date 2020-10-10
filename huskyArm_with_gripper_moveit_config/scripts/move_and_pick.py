@@ -26,7 +26,7 @@ class MoveItIkDemo:
         moveit_commander.roscpp_initialize(sys.argv)
         pub = rospy.Publisher('/cmd_vel', Twist,queue_size=10)
         # 初始化ROS节点
-        rospy.init_node('moveit_ik_demo')
+        rospy.init_node('move_and_pick')
         rate = rospy.Rate(10) 
         msg = Twist()        
         # 初始化需要使用move group控制的机械臂中的arm group
@@ -53,6 +53,7 @@ class MoveItIkDemo:
         # 设置允许的最大速度和加速度
         arm.set_max_acceleration_scaling_factor(0.3)
         arm.set_max_velocity_scaling_factor(0.3)
+        gripper.set_max_velocity_scaling_factor(0.08)
 
         # 控制机械臂先回到初始化位置
         arm.set_named_target('home')
@@ -150,7 +151,6 @@ class MoveItIkDemo:
             msg.angular.y = 0
             msg.angular.z = 0
             pub.publish(msg)
-            print i
             rate.sleep()
 
         rospy.sleep(1)
