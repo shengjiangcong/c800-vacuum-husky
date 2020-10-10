@@ -6,7 +6,7 @@
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find probot_c800_demo)/worlds/ttt.world"/>  
+    <arg name="world_name" value="$(find huskyArm_with_gripper_moveit_config)/worlds/myworld.world"/>  
     <arg name="paused" value="$(arg paused)"/>
     <arg name="gui" value="$(arg gazebo_gui)"/>
   </include>
