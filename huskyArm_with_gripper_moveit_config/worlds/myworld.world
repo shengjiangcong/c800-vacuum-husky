@@ -266,7 +266,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/jcsheng/.gazebo/models/coke_can/meshes/coke_can.dae</uri>
+              <uri>/home/tianbot/.gazebo/models/coke_can/meshes/coke_can.dae</uri>
               <scale>0.2 0.15 0.18</scale>
             </mesh>
           </geometry>

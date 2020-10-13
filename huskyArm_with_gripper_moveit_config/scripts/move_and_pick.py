@@ -53,7 +53,7 @@ class MoveItIkDemo:
         # 设置允许的最大速度和加速度
         arm.set_max_acceleration_scaling_factor(0.3)
         arm.set_max_velocity_scaling_factor(0.3)
-        gripper.set_max_velocity_scaling_factor(0.08)
+        gripper.set_max_velocity_scaling_factor(0.12)
 
         # 控制机械臂先回到初始化位置
         arm.set_named_target('home')

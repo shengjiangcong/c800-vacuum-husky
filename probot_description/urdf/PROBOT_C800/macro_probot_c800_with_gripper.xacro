@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="probot_c800">
- <xacro:macro name="arm_probot_c8002">
-  <xacro:include filename="$(find probot_description)/urdf/PROBOT_C800/macro_probot_c8001.xacro" />
+ <xacro:macro name="arm_probot_c800_with_gripper">
+  <xacro:include filename="$(find probot_description)/urdf/PROBOT_C800/macro_probot_c800Arm.xacro" />
   <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
   <xacro:include filename="$(find pr2_description)/urdf/common.xacro" />
 
-  <xacro:arm_probot_c8001/>
+  <xacro:arm_probot_c800Arm/>
 555
   <xacro:robotiq_85_gripper prefix="" parent="link_6" >
     <origin xyz="0.01 0 0" rpy="0 0 0"/>
